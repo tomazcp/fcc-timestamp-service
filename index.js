@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 const dateParser = require('./dateParser');
 const { validateDate } = require('./validator');
-
+const port = process.env.PORT || 3000;
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC
 var cors = require('cors');
@@ -38,6 +38,6 @@ app.get('/api/:date?', validateDate, (req, res) => {
 
 // listen for requests :)
 // process.env.PORT
-var listener = app.listen(3000, function () {
+var listener = app.listen(port, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
